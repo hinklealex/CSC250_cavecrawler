@@ -20,19 +20,19 @@ private String theJSON;
 		     char array = theJSON2.charAt(i);
 		     if(array == '[')
 		     {		
-		    	 System.out.println("JSONObject begin");
+		    	 System.out.println("JSONArray begin");
 		     }
 		     else if (array == ']')
 		     {
-		    	 System.out.println("JSONObject end"); 
+		    	 System.out.println("JSONArray end"); 
 		     }
 		     else if (array == '{')
 		     {
-		    	 System.out.println("JSONArray begin");
+		    	 System.out.println("JSONObject begin");
 		     }
 		     else if (array == '}')
 		     {
-		    	 System.out.println("JSONArray end");
+		    	 System.out.println("JSONObject end");
 		     }
 		//will walk through our json string and create a JSONObject (which is a
 		//collection of name/value pairs where values can be JSONObjects, JSONArrays,
