@@ -2,11 +2,7 @@
   "zero":    0   ,
   "one":"1",
   "two":"2",
-  "three":    {"a":"apple","b":"banana"},
+  "three":    [{"a":"apple","b":"banana"}, {"a":"apple","b":"banana"},{"a":"apple","b":"banana"}],
   "four":2,
-  "employees":[
-    {"firstName":"John", "lastName":"Doe"}, 
-    {"firstName":"Anna", "lastName":"Smith"}, 
-    {"firstName":"Peter","lastName":"Jones"}
-]
+  
 }
