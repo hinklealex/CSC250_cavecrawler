@@ -2,19 +2,32 @@
 public class Room 
 {
 	private Exit[] theExits;
-	private int currNumberOfExits;
 	private String name;
 	private Player thePlayer;
+	private int id;
 	
-	public Room(String name)
+	
+	public Room(JSONObject obj)
 	{
-		this.name = name;
-		this.thePlayer = null;
-		this.theExits = new Exit[4];
-		this.currNumberOfExits = 0;
+		this.id = ((JSONNumberVariable)obj.getVariableForName("id")).getValue();
+		this.name = ((JSONStringVariable)obj.getVariableForName("name")).getValue();
+		//get the exits
+		JSONArrayVariable av = (JSONArrayVariable)obj.getVariableForName("exits");
+		this.theExits = new Exit[av.getCurrSize()];
+		JSONObject[] theObjects = av.getValue();
+		for(int i = 0; i < av.getCurrSize(); i++)
+		{
+			this.theExits[i] = new Exit(theObjects[i]);
+		}
 	}
 	
 	
+	public int getId() 
+	{
+		return id;
+	}
+
+
 	public Player removeThePlayer() 
 	{
 		Player playerToReturn = this.thePlayer;
@@ -25,13 +38,37 @@ public class Room
 
 	public boolean takeExit(String exitName)
 	{
-		for(int i = 0; i < this.currNumberOfExits; i++)
+		for(int i = 0; i < this.theExits.length; i++)
 		{
 			if(this.theExits[i].getName().equalsIgnoreCase(exitName))
 			{
-				this.theExits[i].getDestination().addThePlayer(this.removeThePlayer());
-				return true;
+				//this.thePlayer.displayToUser("Nice Try!!!");
+//********************
+				//write the code to actually find the Room associated with
+				//the destiantionID of this Exit and then add the player to
+				//that Room
+				//We can find our Rooms in CaveCore now!!!
+				//System.out.print(this.theExits[i].getDestinationID());
+				//System.out.println(CaveCore.theRooms[i].getId());
+				
+					if(this.theExits[i].getDestinationID() == CaveCore.theRooms[i+1].getId())
+					{
+						CaveCore.theRooms[i+1].addThePlayer(thePlayer);
+						System.out.println("in room");
+						
+					}
+					else if(this.theExits[i].getDestinationID() == CaveCore.theRooms[i].getId())
+					{
+						CaveCore.theRooms[i].addThePlayer(thePlayer);
+						System.out.println("in room");
+						
+					}
+	
+					return true;
 			}
+			
+			
+			
 		}
 		return false;
 	}
@@ -45,7 +82,7 @@ public class Room
 		this.thePlayer = thePlayer;
 		this.thePlayer.displayToUser("You have entered: " + this.name);
 		this.thePlayer.displayToUser("Possible Exits: ");
-		for(int i = 0; i < this.currNumberOfExits; i++)
+		for(int i = 0; i < this.theExits.length; i++)
 		{
 			this.thePlayer.displayToUser(this.theExits[i].getName());
 		}
@@ -55,7 +92,12 @@ public class Room
 
 	public void addExit(String name, Room destination)
 	{
-		this.theExits[this.currNumberOfExits] = new Exit(name, destination);
-		this.currNumberOfExits++;
+		
+		
+//*****************
+		//write the code to add an additional Exit to this Room
+		//which involves making the theExits array one bucket
+		//larger and then creating a new Exit and adding it to
+		//the end.
 	}
 }
