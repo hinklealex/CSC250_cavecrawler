@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 public class JSONObject 
 {
 	private JSONVariable[] theVariables;
@@ -45,6 +48,7 @@ public class JSONObject
 			this.theVariables[i].display();
 		}
 	}
+	
 	
 	public String exportToJSON()
 	{

@@ -1,10 +1,1 @@
-{
-  "startRoomID":0,
-  "rooms":[
-    { "id": 0, "name":"The Cave Entrance", "exits":[
-        {"name":"north", "destinationID":1}]},
-    { "id":1, "name" : "Room 2", "exits":[
-        {"name":"south", "destinationID":0}]}
-                               									
-  ]
-}
+{"startRoomID":0,"rooms": [{"id":0,"name":"The Cave Entrance","exits": [{"name":"north","destinationID":1},{"name":"up","destinationID":2},{"name":"west","destinationID":3},{"name":"east","destinationID":4},{"name":"down","destinationID":5},{"name":"left","destinationID":6} ]},{"id":1,"name":"Room 2","exits": [{"name":"south","destinationID":0} ]},{"id":2,"name":"The Loft","exits": [{"name":"down","destinationID":0} ]},{"id":3,"name":"testRoom","exits": [{"name":"east","destinationID":0} ]},{"id":4,"name":"test2","exits": [{"name":"west","destinationID":0} ]},{"id":5,"name":"below","exits": [{"name":"up","destinationID":0} ]},{"id":6,"name":"itworks!!","exits": [{"name":"right","destinationID":0} ]} ]}
